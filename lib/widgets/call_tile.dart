@@ -1,13 +1,13 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 
-class ChatTile extends StatelessWidget {
+class CallTile extends StatelessWidget {
   final String name;
   final String time;
   final bool route;
   final bool status;
   final String pfpurl;
-  ChatTile(
+  CallTile(
       {required this.name,
       required this.route,
       required this.status,
@@ -31,14 +31,22 @@ class ChatTile extends StatelessWidget {
         subtitle: Row(
           children: <Widget>[
             Icon(
-              Icons.south_west,
-              color: Colors.green,
-            )
+              route ? Icons.south_west : Icons.north_east,
+              color: status ? Colors.green : Colors.red,
+              size: 16,
+            ),
+            Text(
+              time,
+              style: const TextStyle(color: Colors.grey),
+            ),
           ],
         ),
-        trailing: Text(
-          time,
-          style: const TextStyle(color: Colors.grey),
+        trailing: IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.call,
+            color: Colors.green,
+          ),
         ),
       ),
     );

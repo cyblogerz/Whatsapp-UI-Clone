@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/models/status_model.dart';
-import 'package:whatsapp_clone/models/user_model.dart';
+import 'package:whatsapp_clone/screens/calls_screen.dart';
 import 'package:whatsapp_clone/screens/chat_home.dart';
 import 'package:whatsapp_clone/screens/status_list_screen.dart';
+import 'package:whatsapp_clone/data.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,87 +12,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Status> recentStatus = [
-    Status(
-        name: 'Narendra',
-        time: 'Just Now',
-        viewed: false,
-        pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
-    Status(
-        name: 'Narendra',
-        time: 'Just Now',
-        viewed: false,
-        pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
-    Status(
-        name: 'Narendra',
-        time: 'Just Now',
-        viewed: false,
-        pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
-    Status(
-        name: 'Narendra',
-        time: 'Just Now',
-        viewed: false,
-        pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
-    Status(
-        name: 'Narendra',
-        time: 'Just Now',
-        viewed: false,
-        pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
-    Status(
-        name: 'Narendra',
-        time: 'Just Now',
-        viewed: false,
-        pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
-    Status(
-        name: 'Narendra',
-        time: 'Just Now',
-        viewed: false,
-        pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
-  ];
-  List<Status> viewedStatus = [
-    Status(
-        name: 'Hamsa',
-        time: 'Just Now',
-        viewed: true,
-        pfpurl: 'https://wallpapercave.com/wp/wp3990002.jpg'),
-    Status(
-        name: 'Hamsa',
-        time: 'Just Now',
-        viewed: true,
-        pfpurl: 'https://wallpapercave.com/wp/wp3990002.jpg'),
-    Status(
-        name: 'Hamsa',
-        time: 'Just Now',
-        viewed: true,
-        pfpurl: 'https://wallpapercave.com/wp/wp3990002.jpg'),
-    Status(
-        name: 'Hamsa',
-        time: 'Just Now',
-        viewed: true,
-        pfpurl: 'https://wallpapercave.com/wp/wp3990002.jpg'),
-    Status(
-        name: 'Hamsa',
-        time: 'Just Now',
-        viewed: true,
-        pfpurl: 'https://wallpapercave.com/wp/wp3990002.jpg'),
-  ];
-  List<User> users = [
-    User(
-        name: 'Narendra Modi',
-        message: 'Mere pyari desh vasiyo',
-        time: '10:50',
-        pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
-    User(
-        name: 'Sachin Tendulkar',
-        message: 'Yeah, I will check on that',
-        time: '2:20',
-        pfpurl: 'https://wallpapercave.com/wp/wp3990002.jpg'),
-    User(
-        name: 'Salman Khan',
-        message: 'The deer wwill be arriving soon',
-        time: '3:30',
-        pfpurl: 'https://wallpapercave.com/wp/wp4323962.jpg'),
-  ];
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -127,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Text('This feature will be available soon!'),
             ChatHome(chatTiles: users),
             StatusPage(recentStatus: recentStatus, viewedStatus: viewedStatus),
-            Text('Soon'),
+            CallList(callLogs: callLogs)
           ],
         ),
       ),

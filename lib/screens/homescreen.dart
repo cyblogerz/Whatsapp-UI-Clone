@@ -30,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      initialIndex: 1,
       length: 4,
       child: Scaffold(
         appBar: AppBar(
@@ -42,9 +43,9 @@ class _HomeScreenState extends State<HomeScreen> {
           bottom: const TabBar(
             tabs: [
               Tab(icon: Icon(Icons.camera_alt)),
-              Tab(text: 'Chat'),
-              Tab(text: 'Status'),
-              Tab(text: 'Calls'),
+              Tab(text: 'CHATS'),
+              Tab(text: 'STATUS'),
+              Tab(text: 'CALLS'),
             ],
             labelColor: Colors.white,
             indicatorColor: Colors.white,

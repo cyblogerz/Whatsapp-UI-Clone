@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ChatTile extends StatelessWidget {
@@ -14,14 +15,25 @@ class ChatTile extends StatelessWidget {
       required this.time});
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: CircleAvatar(
-        backgroundImage: NetworkImage(pfpurl),
-        backgroundColor: Colors.blue,
-        radius: 32,
+    return GestureDetector(
+      onTap: () {},
+      child: ListTile(
+        leading: CircleAvatar(
+          backgroundImage: NetworkImage(pfpurl),
+          backgroundColor: Colors.blue,
+          radius: 25,
+        ),
+        title: Text(name,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            )),
+        subtitle: Text(message),
+        trailing: Text(
+          time,
+          style: TextStyle(color: Colors.grey),
+        ),
       ),
-      title: Text(name),
-      subtitle: Text(message),
     );
   }
 }

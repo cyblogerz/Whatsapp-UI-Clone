@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/models/status_model.dart';
 import 'package:whatsapp_clone/models/user_model.dart';
 import 'package:whatsapp_clone/screens/chat_home.dart';
+import 'package:whatsapp_clone/screens/status_list_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -10,6 +12,70 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<Status> recentStatus = [
+    Status(
+        name: 'Narendra',
+        time: 'Just Now',
+        viewed: false,
+        pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
+    Status(
+        name: 'Narendra',
+        time: 'Just Now',
+        viewed: false,
+        pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
+    Status(
+        name: 'Narendra',
+        time: 'Just Now',
+        viewed: false,
+        pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
+    Status(
+        name: 'Narendra',
+        time: 'Just Now',
+        viewed: false,
+        pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
+    Status(
+        name: 'Narendra',
+        time: 'Just Now',
+        viewed: false,
+        pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
+    Status(
+        name: 'Narendra',
+        time: 'Just Now',
+        viewed: false,
+        pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
+    Status(
+        name: 'Narendra',
+        time: 'Just Now',
+        viewed: false,
+        pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
+  ];
+  List<Status> viewedStatus = [
+    Status(
+        name: 'Hamsa',
+        time: 'Just Now',
+        viewed: true,
+        pfpurl: 'https://wallpapercave.com/wp/wp3990002.jpg'),
+    Status(
+        name: 'Hamsa',
+        time: 'Just Now',
+        viewed: true,
+        pfpurl: 'https://wallpapercave.com/wp/wp3990002.jpg'),
+    Status(
+        name: 'Hamsa',
+        time: 'Just Now',
+        viewed: true,
+        pfpurl: 'https://wallpapercave.com/wp/wp3990002.jpg'),
+    Status(
+        name: 'Hamsa',
+        time: 'Just Now',
+        viewed: true,
+        pfpurl: 'https://wallpapercave.com/wp/wp3990002.jpg'),
+    Status(
+        name: 'Hamsa',
+        time: 'Just Now',
+        viewed: true,
+        pfpurl: 'https://wallpapercave.com/wp/wp3990002.jpg'),
+  ];
   List<User> users = [
     User(
         name: 'Narendra Modi',
@@ -60,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             Text('This feature will be available soon!'),
             ChatHome(chatTiles: users),
-            Text('Soon'),
+            StatusPage(recentStatus: recentStatus, viewedStatus: viewedStatus),
             Text('Soon'),
           ],
         ),

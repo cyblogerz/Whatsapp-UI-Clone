@@ -1,7 +1,12 @@
-class StatusData {
+class Status {
   String name;
   String time;
   bool viewed;
+  String pfpurl;
 
-  StatusData({required this.name, required this.time, required this.viewed});
+  Status(
+      {required this.name,
+      required this.time,
+      required this.viewed,
+      required this.pfpurl});
 }

@@ -30,7 +30,7 @@ class ChatTile extends StatelessWidget {
             )),
         subtitle: Row(
           children: <Widget>[
-            Icon(
+            const Icon(
               Icons.south_west,
               color: Colors.green,
             )

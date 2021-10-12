@@ -1,11 +1,12 @@
-class User {
+class Status {
   String name;
-  String message;
   String time;
+  bool viewed;
   String pfpurl;
-  User(
+
+  Status(
       {required this.name,
-      required this.message,
       required this.time,
+      required this.viewed,
       required this.pfpurl});
 }

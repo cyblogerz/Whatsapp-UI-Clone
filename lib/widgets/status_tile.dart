@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:whatsapp_clone/widgets/add_stat.dart';
 
@@ -18,7 +19,10 @@ class StatusTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(name),
+      title: Text(
+        name,
+        style: const TextStyle(fontWeight: FontWeight.bold),
+      ),
       leading: isMe
           ? AddCircle(pfpurl: pfpurl)
           : StatusCircle(
@@ -39,9 +43,9 @@ class StatusCircle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: viewed ? Colors.green : Colors.white, shape: BoxShape.circle),
+          color: viewed ? Colors.green : Colors.grey, shape: BoxShape.circle),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(3.0),
         child: CircleAvatar(
           backgroundColor: Colors.white,
           backgroundImage: NetworkImage(pfpurl),
@@ -64,10 +68,19 @@ class AddCircle extends StatelessWidget {
           backgroundImage: NetworkImage(pfpurl),
           radius: 25,
         ),
-        CircleAvatar(
-          backgroundColor: Colors.teal[900],
-          child: const Icon(Icons.add),
-          radius: 5,
+        Positioned.fill(
+          child: Align(
+            alignment: Alignment.bottomRight,
+            child: CircleAvatar(
+              backgroundColor: Colors.teal[900],
+              child: const Icon(
+                Icons.add,
+                size: 16,
+                color: Colors.white,
+              ),
+              radius: 11,
+            ),
+          ),
         ),
       ],
     );

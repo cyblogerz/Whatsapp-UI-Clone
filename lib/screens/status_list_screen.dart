@@ -19,9 +19,12 @@ class StatusPage extends StatelessWidget {
           time: 'Tap to add status update',
           pfpurl: 'https://avatars.githubusercontent.com/u/74711322?v=4',
         ),
-        const Text(
-          'Recent Updates',
-          style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+        const Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Text(
+            'Recent Updates',
+            style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+          ),
         ),
         ListView.builder(
           shrinkWrap: true,
@@ -37,9 +40,12 @@ class StatusPage extends StatelessWidget {
             );
           },
         ),
-        const Text(
-          'Viewed Updates',
-          style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+        const Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Text(
+            'Viewed Updates',
+            style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+          ),
         ),
         ListView.builder(
           shrinkWrap: true,

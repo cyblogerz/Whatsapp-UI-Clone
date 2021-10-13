@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/models/user_model.dart';
+import 'package:whatsapp_clone/screens/chat_screen.dart';
 import 'package:whatsapp_clone/widgets/chat_tile.dart';
 
 class ChatHome extends StatefulWidget {

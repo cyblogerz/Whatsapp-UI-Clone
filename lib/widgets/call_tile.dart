@@ -43,9 +43,9 @@ class CallTile extends StatelessWidget {
         ),
         trailing: IconButton(
           onPressed: () {},
-          icon: const Icon(
+          icon: Icon(
             Icons.call,
-            color: Colors.green,
+            color: Colors.teal.shade900,
           ),
         ),
       ),

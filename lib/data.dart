@@ -69,17 +69,20 @@ List<Status> viewedStatus = [
 List<User> users = [
   User(
       name: 'Narendra Modi',
+      about: 'Prime Minister',
       message: 'Mere pyari desh vasiyo',
       time: '10:50',
       pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
   User(
       name: 'Sachin Tendulkar',
+      about: 'Chase your dreams 🙂',
       message: 'Yeah, I will check on that',
       time: '2:20',
       pfpurl: 'https://wallpapercave.com/wp/wp3990002.jpg'),
   User(
       name: 'Salman Khan',
-      message: 'The deer wwill be arriving soon',
+      about: 'Out for hunting 🐵',
+      message: 'The deer will be arriving soon',
       time: '3:30',
       pfpurl: 'https://wallpapercave.com/wp/wp4323962.jpg'),
 ];

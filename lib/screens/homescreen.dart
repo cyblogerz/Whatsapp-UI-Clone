@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/screens/calls_screen.dart';
 import 'package:whatsapp_clone/screens/chat_home.dart';
+import 'package:whatsapp_clone/screens/select_contact.dart';
 import 'package:whatsapp_clone/screens/status_list_screen.dart';
 import 'package:whatsapp_clone/data.dart';
 
@@ -37,7 +38,12 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => SelectContact(userTiles: users)));
+          },
           child: Icon(Icons.message_rounded),
           backgroundColor: Colors.teal[900],
         ),

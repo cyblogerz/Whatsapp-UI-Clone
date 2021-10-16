@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/screens/calls_screen.dart';
+import 'package:whatsapp_clone/screens/camera_screen.dart';
 import 'package:whatsapp_clone/screens/chat_home.dart';
 import 'package:whatsapp_clone/screens/select_contact.dart';
 import 'package:whatsapp_clone/screens/status_list_screen.dart';
@@ -49,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: TabBarView(
           children: <Widget>[
-            Text('This feature will be available soon!'),
+            Camera(),
             ChatHome(chatTiles: users),
             StatusPage(recentStatus: recentStatus, viewedStatus: viewedStatus),
             CallList(callLogs: callLogs)

@@ -66,20 +66,20 @@ List<Status> viewedStatus = [
       viewed: true,
       pfpurl: 'https://wallpapercave.com/wp/wp3990002.jpg'),
 ];
-List<User> users = [
-  User(
+List<UserModel> users = [
+  UserModel(
       name: 'Narendra Modi',
       about: 'Prime Minister',
       message: 'Mere pyari desh vasiyo',
       time: '10:50',
       pfpurl: 'https://wallpapercave.com/wp/wp6727826.jpg'),
-  User(
+  UserModel(
       name: 'Sachin Tendulkar',
       about: 'Chase your dreams 🙂',
       message: 'Yeah, I will check on that',
       time: '2:20',
       pfpurl: 'https://wallpapercave.com/wp/wp3990002.jpg'),
-  User(
+  UserModel(
       name: 'Salman Khan',
       about: 'Out for hunting 🐵',
       message: 'The deer will be arriving soon',

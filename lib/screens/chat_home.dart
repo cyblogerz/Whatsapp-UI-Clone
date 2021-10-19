@@ -4,7 +4,7 @@ import 'package:whatsapp_clone/screens/chat_screen.dart';
 import 'package:whatsapp_clone/widgets/chat_tile.dart';
 
 class ChatHome extends StatefulWidget {
-  final List<User> chatTiles;
+  final List<UserModel> chatTiles;
 
   ChatHome({required this.chatTiles});
 
@@ -20,9 +20,9 @@ class _ChatHomeState extends State<ChatHome> {
         itemBuilder: (context, index) {
           return ChatTile(
             name: widget.chatTiles[index].name,
-            message: widget.chatTiles[index].message,
+            message: widget.chatTiles[index].message!,
             pfpurl: widget.chatTiles[index].pfpurl,
-            time: widget.chatTiles[index].time,
+            time: widget.chatTiles[index].time!,
           );
         },
         itemCount: widget.chatTiles.length,

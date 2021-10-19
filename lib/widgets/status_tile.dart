@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/screens/story_screen.dart';
 // import 'package:whatsapp_clone/widgets/add_stat.dart';
 
 class StatusTile extends StatelessWidget {
@@ -18,18 +19,24 @@ class StatusTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        name,
-        style: const TextStyle(fontWeight: FontWeight.bold),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => StoryPage()));
+      },
+      child: ListTile(
+        title: Text(
+          name,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+        leading: isMe
+            ? AddCircle(pfpurl: pfpurl)
+            : StatusCircle(
+                pfpurl: pfpurl,
+                viewed: viewed,
+              ),
+        subtitle: Text(time),
       ),
-      leading: isMe
-          ? AddCircle(pfpurl: pfpurl)
-          : StatusCircle(
-              pfpurl: pfpurl,
-              viewed: viewed,
-            ),
-      subtitle: Text(time),
     );
   }
 }

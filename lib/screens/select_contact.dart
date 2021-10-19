@@ -3,7 +3,7 @@ import 'package:whatsapp_clone/models/user_model.dart';
 import 'package:whatsapp_clone/widgets/user_tile.dart';
 
 class SelectContact extends StatelessWidget {
-  final List<User> userTiles;
+  final List<UserModel> userTiles;
 
   SelectContact({required this.userTiles});
   @override
@@ -42,7 +42,7 @@ class SelectContact extends StatelessWidget {
             itemBuilder: (context, index) {
               return UserTile(
                 name: userTiles[index].name,
-                about: userTiles[index].about,
+                about: userTiles[index].about!,
                 pfpurl: userTiles[index].pfpurl,
               );
             },

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:math';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/screens/chat_screen.dart';
@@ -35,7 +36,7 @@ class ChatTile extends StatelessWidget {
       },
       child: ListTile(
         leading: CircleAvatar(
-          backgroundImage: NetworkImage(pfpurl),
+          backgroundImage: CachedNetworkImageProvider(pfpurl),
           backgroundColor: Colors.blue,
           radius: 25,
         ),

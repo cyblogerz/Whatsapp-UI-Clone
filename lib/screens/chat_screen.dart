@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/widgets/message_entry.dart';
 
@@ -14,26 +15,24 @@ class ChatScreen extends StatelessWidget {
       appBar: AppBar(
         titleSpacing: 0,
         backgroundColor: Colors.teal[900],
-        title: Expanded(
-          child: ListTile(
-            contentPadding: EdgeInsets.all(0),
-            leading: CircleAvatar(
-              backgroundColor: Colors.grey,
-              backgroundImage: NetworkImage(pfpurl),
-            ),
-            title: Text(
-              name,
-              style: const TextStyle(
-                color: Colors.white,
-              ),
-            ),
-            subtitle: onlineStatus
-                ? const Text(
-                    'online',
-                    style: TextStyle(color: Colors.white),
-                  )
-                : Text('khk'),
+        title: ListTile(
+          contentPadding: EdgeInsets.all(0),
+          leading: CircleAvatar(
+            backgroundColor: Colors.grey,
+            backgroundImage: CachedNetworkImageProvider(pfpurl),
           ),
+          title: Text(
+            name,
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          subtitle: onlineStatus
+              ? const Text(
+                  'online',
+                  style: TextStyle(color: Colors.white),
+                )
+              : null,
         ),
         actions: [
           IconButton(
@@ -46,12 +45,23 @@ class ChatScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: Stack(
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(),
-            MessageEntry(),
+            Expanded(
+              child: Container(
+                // height: double.infinity,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('images/whatsapp_chat_bg.png'),
+                    fit: BoxFit.cover,
+                  ),
+                  // color: Colors.red,
+                ),
+              ),
+            ),
+            Align(alignment: Alignment.bottomCenter, child: MessageEntry()),
           ],
         ),
       ),

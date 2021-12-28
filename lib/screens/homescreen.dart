@@ -1,10 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:ui';
-
+import '../providers/myprovider.dart';
 import 'package:circular_reveal_animation/circular_reveal_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone/screens/calls_screen.dart';
 import 'package:whatsapp_clone/screens/camera_screen.dart';
 import 'package:whatsapp_clone/screens/chat_home.dart';
@@ -34,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen>
     super.initState();
   }
 
-   Offset offset = Offset(0,0);
+  Offset offset = Offset(0, 0);
   void _getWidgetInfo(_) {
     final RenderBox renderBox =
         _widgetKey.currentContext?.findRenderObject() as RenderBox;
@@ -42,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen>
     final Size size = renderBox.size; // or _widgetKey.currentContext?.size
     print('Size: ${size.width}, ${size.height}');
 
-    offset = renderBox.localToGlobal(Offset(size.width/2,size.height/2));
+    offset = renderBox.localToGlobal(Offset(size.width / 2, size.height / 2));
     print('Offset: ${offset.dx}, ${offset.dy}');
     // print(
     //     'Position: ${(offset.dx + size.width) / 2}, ${(offset.dy + size.height) / 2}');
@@ -50,6 +51,8 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
+    DataProvider myProvider = Provider.of<DataProvider>(context);
+
     double deviceWidth = MediaQuery.of(context).size.width;
     double deviceHeight = MediaQuery.of(context).size.height;
     return DefaultTabController(
@@ -57,21 +60,21 @@ class _HomeScreenState extends State<HomeScreen>
       length: 4,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size(double.infinity, 110),
+          preferredSize: Size(double.infinity, myProvider.height_value),
           child: Stack(children: [
             AppBar(
               title: Text('WhatsApp'),
               backgroundColor: Colors.teal[900],
-              
               actions: [
                 IconButton(
                     key: _widgetKey,
                     color: Colors.white,
                     onPressed: () {
+                      myProvider.toggle_height();
                       setState(() {
                         _getWidgetInfo(_widgetKey);
                       });
-                      
+
                       animationController.forward();
                     },
                     icon: Icon(Icons.search)),
@@ -91,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen>
             CircularRevealAnimation(
               child: SearchTile(animationController),
               animation: animation,
-              centerOffset: Offset(offset.dx,offset.dy),
+              centerOffset: Offset(offset.dx, offset.dy),
             ),
           ]),
         ),

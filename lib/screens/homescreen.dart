@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:ui';
+import 'package:whatsapp_clone/screens/search_list.dart';
+
 import '../providers/myprovider.dart';
 import 'package:circular_reveal_animation/circular_reveal_animation.dart';
 import 'package:flutter/material.dart';
@@ -111,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen>
         body: TabBarView(
           children: <Widget>[
             Camera(),
-            ChatHome(chatTiles: users),
+           (myProvider.getHeight)?SearchList():ChatHome(chatTiles: users),
             StatusPage(recentStatus: recentStatus, viewedStatus: viewedStatus),
             CallList(callLogs: callLogs)
           ],

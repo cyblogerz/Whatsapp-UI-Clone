@@ -4,7 +4,7 @@ import 'package:whatsapp_clone/models/user_model.dart';
 
 class DataProvider with ChangeNotifier {
   bool height = false;
-  String searchKeyword = "";
+  String _searchKeyword = "";
   List<UserModel> search_list = [];
   List<UserModel> users = [
     UserModel(
@@ -41,16 +41,23 @@ class DataProvider with ChangeNotifier {
 
   void updateSearchList(String s) {
     search_list.clear();
-    searchKeyword += s;
-    searchKeyword.toLowerCase();
-    search_list.addAll(users.where((element) =>
-        element.name.contains(searchKeyword) &&
+    _searchKeyword = s;
+    // print(_searchKeyword);
+    _searchKeyword.toLowerCase();
+    search_list.addAll([...users].where((element) =>
+        element.name.toLowerCase().contains(_searchKeyword) &&
         !search_list.contains(element)));
     notifyListeners();
   }
 
+  void clearSearch() {
+    search_list.clear();
+    _searchKeyword = "";
+    notifyListeners();
+  }
+
   String get searchWord {
-    return searchKeyword;
+    return _searchKeyword;
   }
 
   double get height_value {

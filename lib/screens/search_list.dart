@@ -12,25 +12,26 @@ class SearchList extends StatefulWidget {
 class _SearchListState extends State<SearchList> {
   @override
   Widget build(BuildContext context) {
-    List<UserModel> search_list = Provider.of<DataProvider>(context).getsearchList;
+    List<UserModel> search_list =
+        Provider.of<DataProvider>(context).getsearchList;
     List<UserModel> users = Provider.of<DataProvider>(context).getUserList;
-
+    String searchWord = Provider.of<DataProvider>(context).searchWord;
     return SafeArea(
         child: ListView.builder(
       itemBuilder: (context, index) {
-        return (search_list.length == 0)
+        return (searchWord.length==0)
             ? ChatTile(
                 name: users[index].name,
                 message: users[index].message!,
                 pfpurl: users[index].pfpurl,
                 time: users[index].time!)
-            : ChatTile(
+            : (searchWord.length>0 && search_list.length==0)?Container():ChatTile(
                 name: search_list[index].name,
                 message: search_list[index].message!,
                 pfpurl: search_list[index].pfpurl,
                 time: search_list[index].time!);
       },
-      itemCount: (search_list.length == 0)?users.length:search_list.length,
+      itemCount: (search_list.length == 0) ? users.length : search_list.length,
     ));
   }
 }

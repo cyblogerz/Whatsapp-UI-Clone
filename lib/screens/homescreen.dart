@@ -26,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen>
   late AnimationController animationController;
   late Animation<double> animation;
   final GlobalKey _widgetKey = GlobalKey();
+  late FocusNode currentFocus;
 
   @override
   void initState() {
@@ -34,6 +35,8 @@ class _HomeScreenState extends State<HomeScreen>
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     animation =
         CurvedAnimation(parent: animationController, curve: Curves.easeIn);
+    currentFocus = new FocusNode();
+    currentFocus.unfocus();
     super.initState();
   }
 
@@ -43,10 +46,9 @@ class _HomeScreenState extends State<HomeScreen>
         _widgetKey.currentContext?.findRenderObject() as RenderBox;
 
     final Size size = renderBox.size; // or _widgetKey.currentContext?.size
-    print('Size: ${size.width}, ${size.height}');
 
     offset = renderBox.localToGlobal(Offset(size.width / 2, size.height / 2));
-    print('Offset: ${offset.dx}, ${offset.dy}');
+
     // print(
     //     'Position: ${(offset.dx + size.width) / 2}, ${(offset.dy + size.height) / 2}');
   }
@@ -76,6 +78,7 @@ class _HomeScreenState extends State<HomeScreen>
                       setState(() {
                         _getWidgetInfo(_widgetKey);
                       });
+                      currentFocus.requestFocus();
 
                       animationController.forward();
                     },
@@ -94,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen>
               ),
             ),
             CircularRevealAnimation(
-              child: SearchTile(animationController),
+              child: SearchTile(animationController, currentFocus),
               animation: animation,
               centerOffset: Offset(offset.dx, offset.dy),
             ),
@@ -113,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen>
         body: TabBarView(
           children: <Widget>[
             Camera(),
-           (myProvider.getHeight)?SearchList():ChatHome(chatTiles: users),
+            (myProvider.getHeight) ? SearchList() : ChatHome(chatTiles: users),
             StatusPage(recentStatus: recentStatus, viewedStatus: viewedStatus),
             CallList(callLogs: callLogs)
           ],

@@ -28,10 +28,13 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cached_network_image: ^3.1.0
+  circular_reveal_animation: ^2.0.0
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  
   font_awesome_flutter: ^9.1.0
+  provider: ^5.0.0
   story: ^0.6.0
 
 dev_dependencies:

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone/providers/myprovider.dart';
 import 'package:whatsapp_clone/screens/homescreen.dart';
 
 void main() {
@@ -10,7 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: ChangeNotifierProvider(create: (_)=> DataProvider(),
+      child: HomeScreen(),),
     );
   }
 }

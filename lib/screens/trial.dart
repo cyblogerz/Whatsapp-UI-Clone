@@ -78,12 +78,12 @@ class _MyHomePageState extends State<MyHomePage>
                   color: Colors.amber,
                 ),
                 SizedBox(height: 12),
-                Stack(
-                  children:[
-                    MaterialButton(
+                Stack(children: [
+                  MaterialButton(
                     child: Text("show / hide image"),
                     onPressed: () {
-                      if (animationController.status == AnimationStatus.forward ||
+                      if (animationController.status ==
+                              AnimationStatus.forward ||
                           animationController.status ==
                               AnimationStatus.completed) {
                         animationController.reverse();
@@ -93,19 +93,17 @@ class _MyHomePageState extends State<MyHomePage>
                     },
                     color: Colors.yellow,
                   ),
-                    SizedBox(height: 12),
-                CircularRevealAnimation(
-                  child: Image.network(
-                      "https://static1.srcdn.com/wordpress/wp-content/uploads/2019/11/john-wick-2-header-1.jpg"),
-                  animation: animation,
+                  SizedBox(height: 12),
+                  CircularRevealAnimation(
+                    child: Image.network(
+                        "https://static1.srcdn.com/wordpress/wp-content/uploads/2019/11/john-wick-2-header-1.jpg"),
+                    animation: animation,
 //                centerAlignment: Alignment.centerRight,
-                  centerOffset: Offset(50, 50),
+                    centerOffset: Offset(50, 50),
 //                minRadius: 12,
 //                maxRadius: 200,
-                ),
-                    ] 
-                ),
-                
+                  ),
+                ]),
               ],
             ),
           ),
@@ -157,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage>
           content: Text(
               "Content of the dialog. Content of the dialog. Content of the dialog. Content of the dialog."),
           actions: [
-            FlatButton(
+            TextButton(
               onPressed: () => Navigator.pop(context),
               child: Text("OK"),
             ),

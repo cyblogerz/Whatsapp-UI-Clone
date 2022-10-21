@@ -14,6 +14,7 @@ class _StoryPageState extends State<StoryPage> {
   late ValueNotifier<IndicatorAnimationCommand> indicatorAnimationController;
   final sampleUsers = [
     UserModel(
+        id: 1,
         stories: [
           StoryModel(
               "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixid=MXwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
@@ -28,6 +29,7 @@ class _StoryPageState extends State<StoryPage> {
         pfpurl:
             "https://images.unsplash.com/photo-1609262772830-0decc49ec18c?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMDF8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
     UserModel(
+        id: 1,
         stories: [
           StoryModel(
               "https://images.unsplash.com/photo-1609439547168-c973842210e1?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4Nnx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
@@ -36,6 +38,7 @@ class _StoryPageState extends State<StoryPage> {
         pfpurl:
             "https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?ixid=MXwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwzMjN8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
     UserModel(
+        id: 1,
         stories: [
           StoryModel(
               "https://images.unsplash.com/photo-1609421139394-8def18a165df?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMDl8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),

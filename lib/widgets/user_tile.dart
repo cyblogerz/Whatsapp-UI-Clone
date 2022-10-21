@@ -11,11 +11,13 @@ final pseudoStatus = randomNumberGenerator.nextBool();
 class UserTile extends StatelessWidget {
   final String name;
   final String about;
+  final int id;
   final String pfpurl;
 
   // final Function()? tapCallback;
   UserTile({
     required this.name,
+    required this.id,
     // required this.tapCallback,
     required this.about,
     required this.pfpurl,
@@ -28,6 +30,7 @@ class UserTile extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => ChatScreen(
+                      id: id,
                       name: name,
                       pfpurl: pfpurl,
                       onlineStatus: pseudoStatus,

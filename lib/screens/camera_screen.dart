@@ -8,8 +8,8 @@ class Camera extends StatelessWidget {
         // crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(10.0),
+          const Padding(
+            padding: EdgeInsets.all(10.0),
             child: CircleAvatar(
               radius: 50,
               backgroundColor: Colors.grey,
@@ -20,11 +20,11 @@ class Camera extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
                   color: Colors.teal[900],
-                  borderRadius: BorderRadius.all(Radius.circular(32))),
-              child: Text(
+                  borderRadius: const BorderRadius.all(Radius.circular(32))),
+              child: const Text(
                 'A Whatsapp UI clone developed by Pranav Ajay(Cyblogerz)',
                 style: TextStyle(
                   color: Colors.white,

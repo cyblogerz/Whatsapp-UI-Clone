@@ -11,7 +11,7 @@ class DataProvider with ChangeNotifier {
     Message(msg: "Hello bro", readStatus: false, time: "10:59 P.M", uid: 0),
     Message(msg: "How are you??", readStatus: false, time: "11:15 P.M", uid: 0),
     Message(msg: "Where r you", readStatus: false, time: "11:30 P.M", uid: 0),
-    Message(msg: "Hello bro", readStatus: false, time: "10:59 P.M", uid: 0),
+    Message(msg: "Hello bro", readStatus: false, time: "12:59 P.M", uid: 0),
     Message(msg: "How are you??", readStatus: false, time: "11:15 P.M", uid: 1),
     Message(msg: "Where r you", readStatus: false, time: "11:30 P.M", uid: 1),
     Message(msg: "Hello bro", readStatus: false, time: "10:59 P.M", uid: 1),
@@ -100,6 +100,13 @@ class DataProvider with ChangeNotifier {
   String getLastmsg(id) {
     List<Message> msgs = listMessages(id);
     return msgs[0].msg;
+  }
+
+  void sendChat(id, msg) {
+    Message nmsg = Message(
+        msg: msg, readStatus: false, time: "10:59 P.M", uid: id, isMe: true);
+    messages.add(nmsg);
+    notifyListeners();
   }
 
   String getTime(id) {

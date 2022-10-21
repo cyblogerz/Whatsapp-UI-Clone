@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/myprovider.dart';
 
 const kMessageTextFieldDecoration = InputDecoration(
     contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
@@ -23,16 +26,21 @@ const kMessageContainerDecoration = BoxDecoration(
       bottomLeft: Radius.circular(32)),
 );
 
-class MessageEntry extends StatefulWidget {
-  @override
-  State<MessageEntry> createState() => _MessageEntryState();
-}
-
-class _MessageEntryState extends State<MessageEntry> {
+class MessageEntry extends StatelessWidget {
   String? messageText;
+  final int uid;
+
   final messageTextController = TextEditingController();
+
+  MessageEntry({
+    Key? key,
+    required this.uid,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    final data = Provider.of<DataProvider>(context);
+
     return Padding(
       padding: const EdgeInsets.only(left: 8.0),
       child: Container(
@@ -56,6 +64,7 @@ class _MessageEntryState extends State<MessageEntry> {
             TextButton(
               onPressed: () {
                 messageTextController.clear();
+                data.sendChat(this.uid, messageText);
 
                 // .add({
                 //   'text': messageText,

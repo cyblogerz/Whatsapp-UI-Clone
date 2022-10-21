@@ -41,6 +41,7 @@ class SelectContact extends StatelessWidget {
             physics: ScrollPhysics(),
             itemBuilder: (context, index) {
               return UserTile(
+                id: userTiles[index].id,
                 name: userTiles[index].name,
                 about: userTiles[index].about!,
                 pfpurl: userTiles[index].pfpurl,

@@ -19,17 +19,17 @@ class _SearchListState extends State<SearchList> {
     return SafeArea(
         child: ListView.builder(
       itemBuilder: (context, index) {
-        return (searchWord.length==0)
+        return (searchWord.length == 0)
             ? ChatTile(
-                name: users[index].name,
-                message: users[index].message!,
-                pfpurl: users[index].pfpurl,
+                user: users[index],
+                lastmsg: users[index].message!,
                 time: users[index].time!)
-            : (searchWord.length>0 && search_list.length==0)?Container():ChatTile(
-                name: search_list[index].name,
-                message: search_list[index].message!,
-                pfpurl: search_list[index].pfpurl,
-                time: search_list[index].time!);
+            : (searchWord.length > 0 && search_list.length == 0)
+                ? Container()
+                : ChatTile(
+                    user: search_list[index],
+                    lastmsg: search_list[index].message!,
+                    time: search_list[index].time!);
       },
       itemCount: (search_list.length == 0) ? users.length : search_list.length,
     ));

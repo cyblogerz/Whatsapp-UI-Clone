@@ -4,23 +4,23 @@ import 'dart:math';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_clone/models/user_model.dart';
+import 'package:whatsapp_clone/providers/myprovider.dart';
 import 'package:whatsapp_clone/screens/chat_screen.dart';
 
 final randomNumberGenerator = Random();
 final pseudoStatus = randomNumberGenerator.nextBool();
 
 class ChatTile extends StatelessWidget {
-  final String name;
-  final String message;
-  final String pfpurl;
+  final UserModel user;
+  // final String name;
+  // final int id;
+  final String lastmsg;
+  // final String pfpurl;
   final String time;
   // final Function()? tapCallback;
-  ChatTile(
-      {required this.name,
-      // required this.tapCallback,
-      required this.message,
-      required this.pfpurl,
-      required this.time});
+  ChatTile({required this.user, required this.lastmsg, required this.time});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -29,23 +29,24 @@ class ChatTile extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => ChatScreen(
-                      name: name,
-                      pfpurl: pfpurl,
+                      id: user.id,
+                      name: user.name,
+                      pfpurl: user.pfpurl,
                       onlineStatus: pseudoStatus,
                     )));
       },
       child: ListTile(
         leading: CircleAvatar(
-          backgroundImage: CachedNetworkImageProvider(pfpurl),
+          backgroundImage: CachedNetworkImageProvider(user.pfpurl),
           backgroundColor: Colors.blue,
           radius: 25,
         ),
-        title: Text(name,
+        title: Text(user.name,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
             )),
-        subtitle: Text(message),
+        subtitle: Text(lastmsg),
         trailing: Text(
           time,
           style: TextStyle(color: Colors.grey),

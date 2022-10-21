@@ -4,11 +4,15 @@ import 'package:whatsapp_clone/widgets/message_entry.dart';
 
 class ChatScreen extends StatelessWidget {
   final String name;
+  final int id;
   final bool onlineStatus;
   final String pfpurl;
 
   ChatScreen(
-      {required this.name, required this.onlineStatus, required this.pfpurl});
+      {required this.name,
+      required this.onlineStatus,
+      required this.pfpurl,
+      required this.id});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

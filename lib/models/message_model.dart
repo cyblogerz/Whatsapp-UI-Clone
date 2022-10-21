@@ -4,13 +4,11 @@ class Message {
   final String msg;
   final bool readStatus;
   final String time;
-  final UserModel sender;
-  final UserModel recepient;
+  final int uid;
 
   Message(
       {required this.msg,
       required this.readStatus,
       required this.time,
-      required this.recepient,
-      required this.sender});
+      required this.uid});
 }

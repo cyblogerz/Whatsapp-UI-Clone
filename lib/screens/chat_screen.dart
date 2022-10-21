@@ -23,6 +23,7 @@ class ChatScreen extends StatelessWidget {
     final messages = data.listMessages(id);
 
     return Scaffold(
+      backgroundColor: Color(0xffE5DDD5),
       appBar: AppBar(
         titleSpacing: 0,
         backgroundColor: Colors.teal[900],
@@ -56,7 +57,7 @@ class ChatScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: Stack(
+        child: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           // crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
@@ -79,13 +80,11 @@ class ChatScreen extends StatelessWidget {
                         )),
               ),
             ),
-            // Expanded(
-            //   child: Container(
-            //     // height: double.infinity,
-
-            //   ),
-            // ),
-            Align(alignment: Alignment.bottomCenter, child: MessageEntry()),
+            Align(
+                alignment: Alignment.bottomCenter,
+                child: MessageEntry(
+                  uid: this.id,
+                )),
           ],
         ),
       ),

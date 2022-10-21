@@ -1,6 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsapp_clone/widgets/message_entry.dart';
+import 'package:whatsapp_clone/widgets/message_tile.dart';
+
+import '../providers/myprovider.dart';
 
 class ChatScreen extends StatelessWidget {
   final String name;
@@ -15,6 +19,9 @@ class ChatScreen extends StatelessWidget {
       required this.id});
   @override
   Widget build(BuildContext context) {
+    final data = Provider.of<DataProvider>(context);
+    final messages = data.listMessages(id);
+
     return Scaffold(
       appBar: AppBar(
         titleSpacing: 0,
@@ -55,7 +62,6 @@ class ChatScreen extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: Container(
-                // height: double.infinity,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('images/whatsapp_chat_bg.png'),
@@ -63,8 +69,22 @@ class ChatScreen extends StatelessWidget {
                   ),
                   // color: Colors.red,
                 ),
+                child: ListView.builder(
+                    itemCount: messages.length,
+                    itemBuilder: (ctx, index) => ChangeNotifierProvider.value(
+                          value: messages[index],
+                          child: MessageTile(
+                            msg: messages[index],
+                          ),
+                        )),
               ),
             ),
+            // Expanded(
+            //   child: Container(
+            //     // height: double.infinity,
+
+            //   ),
+            // ),
             Align(alignment: Alignment.bottomCenter, child: MessageEntry()),
           ],
         ),

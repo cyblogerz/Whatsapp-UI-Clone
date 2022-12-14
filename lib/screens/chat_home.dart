@@ -15,7 +15,7 @@ class ChatHome extends StatelessWidget {
     final data = Provider.of<DataProvider>(context);
     final users = data.getUsers();
     return Scaffold(
-      body: ListView.builder(
+      body: ListView.separated(
         itemCount: chatTiles.length,
         itemBuilder: (context, index) => ChangeNotifierProvider.value(
             value: users[index],
@@ -24,6 +24,9 @@ class ChatHome extends StatelessWidget {
               lastmsg: data.getLastmsg(users[index].id),
               time: data.getTime(users[index].id),
             )),
+        separatorBuilder: (BuildContext context, int index) {
+          return Divider();
+        },
       ),
     );
   }
